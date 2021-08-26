@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
+    <script th:src="@{/js/jquery.js}" src="../static/js/jquery.js"></script>
+    <script th:src="@{/js/bootstrap,js}" src="../static/js/bootstrap.js"></script>
+
+    <title>Examen Iké Asistencia</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" active th:href="@{/}">Inicio<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" th:href="@{/}">Alumnos<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" th:href="@{/}">Materias</a>
+                <a class="nav-item nav-link" th:href="@{/}">EndPoints</a>
+            </div>
+        </div>
+    </nav>
+    <br />
+
+    <div class='container'>
+        <div class='row' style="text-align: center; margin: auto;">
+            <!--CARDS-->
+            <div class='col-md-6'>
+                <div class="card" style="width: 20rem;">
+                    <img th:src="@{/static/Images/alumnos.jpg}" src="../static/Images/alumnos.jpg"
+                        class="img-responsive card-img-top max-width: 100% height: 90%" style="display:block" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Modulo Alumnos</h5>
+                        <p class="card-text">Agregar y Consultar Alumno</p>
+                        <div class="row" style="text-align: center; margin: auto;">
+                            <div class="col-md-12">
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="row" style="text-align: center; margin: auto;">
+                            <br/>
+                            <div class="col-md-6" style="text-align: center; margin: auto;">
+                                <a th:href="@{/}" class="btn-sm btn-success">Agregar</a>
+                            </div>
+                            <div class="col-md-6" style="text-align: center; margin: auto;">
+                                <a th:href="@{/}" class="btn-sm btn-info">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='col-md-6'>
+                <div class="card" style="width: 20rem;">
+                    <img th:src="@{/static/Images/calificaciones.jpg}" src="../static/Images/calificaciones.jpg"
+                        class="img-responsive card-img-top max-width: 100% height: auto" style="display:block"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Modulo Calificaciones</h5>
+                        <p class="card-text">Agregar Alumno</p>
+                        <div class="row" style="text-align: center; margin: auto;">
+                            <div class="col-md-6">
+                                <a th:href="@{/}" class="btn-sm btn-success"
+                                    style="text-align: center; margin: auto;">Agregar</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a th:href="@{/}" class="btn-sm btn-info"
+                                    style="text-align: center; margin: auto;">Consultar</a>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row" style="text-align: center; margin: auto;">
+                            <div class="col-md-6">
+                                <a th:href="@{/}" class="btn-sm btn-warning"
+                                    style="text-align: center; margin: auto;">Modificar</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a th:href="@{/}" class="btn-sm btn-danger"
+                                    style="text-align: center; margin: auto;">Eliminar</a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <br />
+    <footer style="text-align: center; margin: auto;">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            </div>
+            <div class="panel-body">
+                <p>Iké Asistencia</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
