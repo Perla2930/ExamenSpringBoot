@@ -1,11 +1,6 @@
 package com.exam.examen.entitys;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,6 +23,10 @@ public class calificaciones {
 
 	@Id
 	@Column(name="id", unique = true)
+	@GeneratedValue(
+			strategy= GenerationType.AUTO,
+			generator="native"
+	)
 	private int id;
 	
 	/*
