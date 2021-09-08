@@ -10,6 +10,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -60,6 +62,32 @@ class CalificacionesServiceTest {
         calificaciones calif = califRepository.findById(2).get();
 
         assertEquals(calif.getId(), califRepository.findById(2).get().getId());
+
+    }
+
+    @Test
+    @Order(4)
+    public void getListOfCalificaciones(){
+
+        List<calificaciones> calif = califRepository.findAll();
+
+        assertEquals(calif.size(), califRepository.findAll().size());
+
+    }
+
+    @Test
+    @Order(5)
+    public void updateCalificacionesTest(){
+
+        calificaciones calif = califRepository.findById(2).get();
+
+        calif.setCalificacion(10);
+
+        calificaciones califUpdate = califRepository.save(calif);
+
+
+
+        Assertions.assertEquals(califUpdate.getCalificacion(), 10);
 
     }
 
