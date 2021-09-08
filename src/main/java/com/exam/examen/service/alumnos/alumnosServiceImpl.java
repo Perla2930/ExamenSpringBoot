@@ -18,7 +18,7 @@ public class alumnosServiceImpl implements alumnosService {
 	alumnosRepository alumnosRepository;
 	
 	@Autowired
-	validaciones validaciones;
+	validaciones val;
 
 	@Override
 	public List<alumnos> getAllAlumnos() {
@@ -39,7 +39,7 @@ public class alumnosServiceImpl implements alumnosService {
 
 	@Override
 	public alumnos save(alumnos alu) {
-		if(validaciones.validateAlumno(alu)) {
+		if(val.validateAlumno(alu)) {
 			alumnosRepository.save(alu);
 			return alu;
 		}

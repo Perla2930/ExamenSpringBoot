@@ -43,7 +43,7 @@ public class alumnoControler {
 	//find Alumno
 	@GetMapping("/find/{id}")
 	public ResponseEntity<?> getAlu(@PathVariable(value="id") int alumnoId) {
-		alumnos objAlu = alumnosService.findById(alumnoId);
+		alumnos objAlu = (alumnos) alumnosService.findById(alumnoId);
 		System.out.println(objAlu.toString());
 		if(objAlu != null) {
 			return ResponseEntity.ok(objAlu);
