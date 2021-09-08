@@ -8,7 +8,7 @@ import com.exam.examen.entitys.calificaciones;
 
 
 @Repository
-public interface calificcacionesRepository extends JpaRepository<calificaciones, Integer>{
+public interface calificacionesRepository extends JpaRepository<calificaciones, Integer>{
 	
 		
 	@Query("SELECT e FROM #{#entityName} e WHERE alumno = :alumno AND materia = :materia")

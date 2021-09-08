@@ -1,18 +1,14 @@
 package com.exam.examen;
 
 import com.exam.examen.entitys.alumnos;
-import com.exam.examen.reposotiry.alumnos.alumnosRepository;
-import com.exam.examen.service.alumnos.alumnosService;
-import com.exam.examen.service.alumnos.alumnosServiceImpl;
+import com.exam.examen.repository.alumnos.alumnosRepository;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
-import javax.annotation.Priority;
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -22,7 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @AutoConfigureTestDatabase
 @DataJpaTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class alumnosServiceTest<alumno> {
+@Transactional
+public class AlumnosServiceTest {
 
 
 
@@ -36,11 +33,10 @@ public class alumnosServiceTest<alumno> {
     public void saveAlumnoTest() {
 
         alumnos alum = alumnos.builder()
-                .id(1)
                 .nombre("Pedro")
                 .paterno("Ramirez")
                 .materno("Martinez")
-                .materia(1)
+                .materia(2)
                 .build();
 
         alumrepo.save(alum);

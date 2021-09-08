@@ -1,4 +1,4 @@
-package com.exam.examen.reposotiry.alumnos;
+package com.exam.examen.repository.alumnos;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

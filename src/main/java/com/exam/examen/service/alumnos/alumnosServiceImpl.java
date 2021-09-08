@@ -2,13 +2,12 @@ package com.exam.examen.service.alumnos;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.exam.examen.entitys.alumnos;
-import com.exam.examen.reposotiry.alumnos.alumnosRepository;
+import com.exam.examen.repository.alumnos.alumnosRepository;
 import com.exam.examen.utils.validaciones;
 
 @Service
