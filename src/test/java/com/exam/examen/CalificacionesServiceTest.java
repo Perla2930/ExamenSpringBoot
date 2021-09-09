@@ -12,7 +12,7 @@ import org.springframework.test.annotation.Rollback;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @AutoConfigureTestDatabase
@@ -77,17 +77,26 @@ class CalificacionesServiceTest {
 
     @Test
     @Order(5)
+    @Rollback(value = false)
     public void updateCalificacionesTest(){
 
-        calificaciones calif = califRepository.findById(2).get();
+        calificaciones calif = califRepository.getidDelete(1, 2);
 
-        calif.setCalificacion(10);
+        int califUpdate = califRepository.update(10,calif.getAlumno(), calif.getMateria());
 
-        calificaciones califUpdate = califRepository.save(calif);
+        assertEquals(1,califUpdate);
 
+    }
 
+    @Test
+    @Order(6)
+    public void deleteCalificacionesTest(){
 
-        Assertions.assertEquals(califUpdate.getCalificacion(), 10);
+        calificaciones calif = califRepository.getidDelete(1, 2);
+
+        califRepository.deleteById(calif.getId());
+
+        assertFalse(califRepository.existsById(calif.getId()));
 
     }
 
