@@ -5,19 +5,26 @@ import com.exam.examen.entitys.calificaciones;
 import com.exam.examen.repository.alumnos.alumnosRepository;
 import com.exam.examen.repository.calificaciones.calificacionesRepository;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
+
 @AutoConfigureTestDatabase
 @DataJpaTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Transactional
 class CalificacionesServiceTest {
 
 
@@ -38,7 +45,7 @@ class CalificacionesServiceTest {
                 .materia(2)
                 .build();
         alumRepository.save(alum);
-        assertEquals(alum.getId(), alumRepository.findById(1).get().getId());
+        assertEquals(alum.getId(), alumRepository.findById(2).get().getId());
     }
 
 
@@ -52,21 +59,23 @@ class CalificacionesServiceTest {
                 .calificacion(8)
                 .build();
             califRepository.save(calif);
-            assertEquals(calif.getId(), califRepository.findById(2).get().getId());
+            assertEquals(calif.getId(), califRepository.findById(3).get().getId());
         }
 
     @Test
     @Order(3)
+    @Rollback(value = false)
     public void getCalificacionesTest(){
 
-        calificaciones calif = califRepository.findById(2).get();
+        calificaciones calif = califRepository.findById(3).get();
 
-        assertEquals(calif.getId(), califRepository.findById(2).get().getId());
+        assertEquals(calif.getId(), califRepository.findById(3).get().getId());
 
     }
 
     @Test
     @Order(4)
+    @Rollback(value = false)
     public void getListOfCalificaciones(){
 
         List<calificaciones> calif = califRepository.findAll();
@@ -90,6 +99,7 @@ class CalificacionesServiceTest {
 
     @Test
     @Order(6)
+    @Rollback(value = false)
     public void deleteCalificacionesTest(){
 
         calificaciones calif = califRepository.getidDelete(1, 2);
